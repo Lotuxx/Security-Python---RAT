@@ -1,26 +1,10 @@
-from src.client.utils.config import logger
-from src.client.utils.session import Session
+from client.utils import cli
+import typer
 
 
 def main():
-    logger.info("Starting TP3")
-
-    ip = "31.220.95.27:9002"
-    challenges = {"1": f"http://{ip}/captcha1/"}
-
-    for i in challenges:
-        url = challenges[i]
-        session = Session(url)
-        session.prepare_request()
-        session.submit_request()
-
-        while not session.process_response():
-            session.prepare_request()
-            session.submit_request()
-
-        logger.info("Smell good !")
-        logger.info(f"Flag for {url} : {session.get_flag()}")
-
+    app = typer.Typer()
+    app.command()(cli)
 
 if __name__ == "__main__":
     main()
