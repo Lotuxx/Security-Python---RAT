@@ -1,4 +1,4 @@
-from src.tp3.utils.captcha import Captcha
+from src.client.utils.captcha import Captcha
 
 
 class Session:

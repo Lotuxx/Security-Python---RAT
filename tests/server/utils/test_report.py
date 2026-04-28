@@ -1,5 +1,5 @@
 from unittest.mock import patch, mock_open, MagicMock
-from src.tp1.utils.report import Report
+from src.server.utils.report import Report
 
 
 def test_report_init():

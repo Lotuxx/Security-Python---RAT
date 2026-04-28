@@ -1,4 +1,4 @@
-from tp1.utils.capture import Capture
+from server.utils.capture import Capture
 
 
 class Report:

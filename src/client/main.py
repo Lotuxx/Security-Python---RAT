@@ -1,5 +1,5 @@
-from src.tp3.utils.config import logger
-from src.tp3.utils.session import Session
+from src.client.utils.config import logger
+from src.client.utils.session import Session
 
 
 def main():

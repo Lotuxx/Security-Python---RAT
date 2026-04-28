@@ -2,12 +2,12 @@
 name = "template-code"
 version = "0.1.0"
 description = ""
-authors = ["Thibaud ROBIN <trobin@esgi.com>"]
+authors = ["Salla DIOP <s.diop@myskolae.fr>"]
 readme = "README.md"
 packages = [
   { include = "src" },
-  { include = "tp1", from = "src" },
-  { include = "tp3", from = "src" },
+  { include = "server", from = "src" },
+  { include = "client", from = "src" },
 ]
 
 [tool.poetry.dependencies]
@@ -25,5 +25,5 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-tp1 = "tp1.main:main"
-tp3 = "tp3.main:main"
+server = "server.main:main"
+client = "client.main:main"

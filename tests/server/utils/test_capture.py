@@ -1,5 +1,5 @@
 from unittest.mock import patch
-from src.tp1.utils.capture import Capture
+from src.server.utils.capture import Capture
 
 
 def test_capture_init():
