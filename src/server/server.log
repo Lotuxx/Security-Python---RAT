@@ -146,3 +146,4 @@ Any other command will be executed on the client.
 
 [2026-04-30 22:51:28] [INFO] [SERVER CMD] exit
 [2026-04-30 22:51:43] [INFO] [SERVER CMD] whoami
+[2026-04-30 23:10:13] [WARNING] Use 'back' to exit session.

