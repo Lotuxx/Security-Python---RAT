@@ -1,4 +1,4 @@
-from src.server.utils.lib import choose_interface
+from client.utils.lib import choose_interface
 from server.utils.config import logger
 
 

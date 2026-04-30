@@ -1,6 +1,6 @@
-from server.utils.capture import Capture
+from client.utils.capture import Capture
 from server.utils.config import logger
-from server.utils.report import Report
+from client.utils.report import Report
 
 
 def main():

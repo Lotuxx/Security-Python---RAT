@@ -1,4 +1,4 @@
-from server.utils.capture import Capture
+from client.utils.capture import Capture
 
 
 class Report:
