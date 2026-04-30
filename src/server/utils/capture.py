@@ -1,5 +1,5 @@
-from src.tp1.utils.lib import choose_interface
-from tp1.utils.config import logger
+from src.server.utils.lib import choose_interface
+from server.utils.config import logger
 
 
 class Capture:

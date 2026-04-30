@@ -1,4 +1,4 @@
-from src.tp3.utils.session import Session
+from src.client.utils.session import Session
 
 
 def test_session_init():
