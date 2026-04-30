@@ -1,4 +1,4 @@
-from client.utils import cli
+from server.utils import ui
 import typer
 
 
