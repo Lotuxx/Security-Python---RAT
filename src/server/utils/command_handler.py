@@ -1,5 +1,5 @@
 from typing import Optional
-
+from logger import logger
 
 def handle_command(command: str, client_manager):
     parts = command.strip().split()
@@ -14,7 +14,7 @@ def handle_command(command: str, client_manager):
 
     elif cmd == "interact":
         if len(parts) < 2:
-            print("[!] Usage: interact <client_id>")
+            logger.debug("[!] Usage: interact <client_id>")
             return
 
         interact_with_client(parts[1], client_manager)
@@ -23,7 +23,7 @@ def handle_command(command: str, client_manager):
         show_help()
 
     else:
-        print(f"[!] Unknown command: {cmd}")
+        logger.error(f"[!] Unknown command: {cmd}")
 
 
 #-------------- COMMANDS IMPLEMENTATION -------------#
@@ -32,27 +32,27 @@ def list_clients(client_manager):
     clients = client_manager.get_all()
 
     if not clients:
-        print("[!] No connected clients.")
+        logger.info("[!] No connected clients.")
         return
 
-    print("\nConnected clients:")
-    print("-" * 40)
+    logger.info("\nConnected clients:")
+    logger.info("-" * 40)
 
     for client in clients:
-        print(f"ID: {client.id} | IP: {client.ip} | Status: {client.status}")
+        logger.info(f"ID: {client.id} | IP: {client.ip} | Status: {client.status}")
 
-    print("-" * 40)
+    logger.info("-" * 40)
 
 
 def interact_with_client(client_id: str, client_manager):
     client = client_manager.get(client_id)
 
     if not client:
-        print("[!] Client not found.")
+        logger.info("[!] Client not found.")
         return
 
-    print(f"[+] Interacting with client {client.id} ({client.ip})")
-    print("Type 'back' to return.\n")
+    logger.info(f"[+] Interacting with client {client.id} ({client.ip})")
+    logger.info("Type 'back' to return.\n")
 
     while True:
         try:
@@ -80,7 +80,7 @@ def interact_with_client(client_id: str, client_manager):
                 send_command_to_client(cmd, client)
 
         except KeyboardInterrupt:
-            print("\n[!] Type 'back' to exit session.")
+            logger.exception("\n[!] Type 'back' to exit session.")
 
 
 #---------- SESSION COMMANDS ---------#
@@ -93,25 +93,25 @@ def send_command_to_client(command: str, client):
         if response:
             print(response)
         else:
-            print("[!] No response.")
+            logger.error("[!] No response.")
 
     except Exception as e:
-        print(f"[!] Error communicating with client: {e}")
+        logger.exception(f"[!] Error communicating with client: {e}")
 
 
 def print_client_info(client):
-    print("\nClient info:")
-    print(f"ID      : {client.id}")
-    print(f"IP      : {client.ip}")
-    print(f"Status  : {client.status}")
-    print("")
+    logger.info("\nClient info:")
+    logger.info(f"ID      : {client.id}")
+    logger.info(f"IP      : {client.ip}")
+    logger.info(f"Status  : {client.status}")
+    logger.info("")
 
 
 def handle_upload(command: str, client):
     parts = command.split()
 
     if len(parts) < 3:
-        print("[!] Usage: upload <local_path> <remote_path>")
+        logger.debug("[!] Usage: upload <local_path> <remote_path>")
         return
 
     local_path = parts[1]
@@ -120,17 +120,17 @@ def handle_upload(command: str, client):
     try:
         from file_transfer import upload_file
         upload_file(client, local_path, remote_path)
-        print("[+] File uploaded.")
+        logger.critical("[+] File uploaded.")
 
     except Exception as e:
-        print(f"[!] Upload failed: {e}")
+        logger.exception(f"[!] Upload failed: {e}")
 
 
 def handle_download(command: str, client):
     parts = command.split()
 
     if len(parts) < 3:
-        print("[!] Usage: download <remote_path> <local_path>")
+        logger.debug("[!] Usage: download <remote_path> <local_path>")
         return
 
     remote_path = parts[1]
@@ -139,16 +139,16 @@ def handle_download(command: str, client):
     try:
         from file_transfer import download_file
         download_file(client, remote_path, local_path)
-        print("[+] File downloaded.")
+        logger.critical("[+] File downloaded.")
 
     except Exception as e:
-        print(f"[!] Download failed: {e}")
+        logger.exception(f"[!] Download failed: {e}")
 
 
 #----------- HELPERS --------------#
 
 def show_help():
-    print("""
+    logger.debug("""
 Server commands:
     list                List connected clients
     interact <id>       Interact with a client
@@ -158,7 +158,7 @@ Server commands:
 
 
 def session_help():
-    print("""
+    logger.debug("""
 Session commands:
     info                        Show client info
     upload <local> <remote>     Upload file

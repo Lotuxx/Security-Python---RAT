@@ -1,8 +1,7 @@
-# client_manager.py
-
 import threading
 import uuid
 from dataclasses import dataclass
+from logger import logger
 
 
 @dataclass
@@ -32,7 +31,7 @@ class ClientManager:
         with self._lock:
             self._clients[client_id] = session
 
-        print(f"[+] Client connected: {client_id} ({addr[0]}:{addr[1]})")
+        logger.critical(f"[+] Client connected: {client_id} ({addr[0]}:{addr[1]})")
         return client_id
 
 
@@ -46,7 +45,7 @@ class ClientManager:
                     pass
 
                 del self._clients[client_id]
-                print(f"[-] Client removed: {client_id}")
+                logger.critical(f"[-] Client removed: {client_id}")
 
 
     # --------- GET ONE CLIENT ---------#
