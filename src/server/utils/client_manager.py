@@ -31,7 +31,7 @@ class ClientManager:
         with self._lock:
             self._clients[client_id] = session
 
-        logger.critical(f"[+] Client connected: {client_id} ({addr[0]}:{addr[1]})")
+        logger.info(f"[+] Client connected: {client_id} ({addr[0]}:{addr[1]})")
         return client_id
 
 

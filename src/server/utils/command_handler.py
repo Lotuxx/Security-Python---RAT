@@ -39,7 +39,7 @@ def list_clients(client_manager):
     logger.info("-" * 40)
 
     for client in clients:
-        logger.info(f"ID: {client.id} | IP: {client.ip} | Status: {client.status}")
+        logger.info(f"ID: {client.id} | IP: {client.addr[0]} | Status: {client.status}")
 
     logger.info("-" * 40)
 
