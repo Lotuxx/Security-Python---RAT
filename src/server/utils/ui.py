@@ -1,5 +1,3 @@
-# ui.py
-
 from command_handler import handle_command
 from client_manager import ClientManager
 from logger import logger
