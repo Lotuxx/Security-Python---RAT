@@ -1,5 +1,5 @@
-from command_handler import handle_command
-
+from .command_handler import handle_command
+from .logger import logger
 
 class CLI:
     def __init__(self, client_manager):
@@ -7,7 +7,7 @@ class CLI:
         self.running = True
 
     def start(self):
-        print("Server started. Type 'help' for commands.")
+        logger.info("Server started. Type 'help' for commands.")
 
         while self.running:
             try:
@@ -15,7 +15,7 @@ class CLI:
                 self.process_command(command)
 
             except KeyboardInterrupt:
-                print("\n[!] Use 'exit' to quit.")
+                logger.exception("\n[!] Use 'exit' to quit.")
 
 
     def process_command(self, command: str):
@@ -24,7 +24,7 @@ class CLI:
 
         if command == "exit":
             self.running = False
-            print("Exiting...")
+            logger.info("Exiting...")
             return
 
         elif command == "help":
@@ -35,7 +35,7 @@ class CLI:
 
 
     def show_help(self):
-        print("""
+        logger.debug("""
 Available commands:
     help                Show this help
     list                List connected clients

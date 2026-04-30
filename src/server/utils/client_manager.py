@@ -1,7 +1,7 @@
 import threading
 import uuid
 from dataclasses import dataclass
-from logger import logger
+from .logger import logger
 
 
 @dataclass

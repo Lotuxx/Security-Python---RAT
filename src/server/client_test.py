@@ -1,6 +1,5 @@
-# fake_client.py
-
 import socket
+from utils.logger import logger
 
 
 def main():
@@ -10,7 +9,7 @@ def main():
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     client.connect((host, port))
 
-    print("[+] Connected to server")
+    logger.info("[+] Connected to server")
 
     while True:
         try:
@@ -19,7 +18,7 @@ def main():
             if not data:
                 break
 
-            print(f"[SERVER CMD] {data}")
+            logger.info(f"[SERVER CMD] {data}")
 
             # Simulate command execution
             response = f"[CLIENT RESPONSE] Executed: {data}"
@@ -27,7 +26,7 @@ def main():
             client.send(response.encode())
 
         except Exception as e:
-            print(f"[!] Error: {e}")
+            logger.exception(f"[!] Error: {e}")
             break
 
     client.close()

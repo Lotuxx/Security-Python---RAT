@@ -1,5 +1,5 @@
 from typing import Optional
-from logger import logger
+from .logger import logger
 
 def handle_command(command: str, client_manager):
     parts = command.strip().split()
@@ -87,8 +87,8 @@ def interact_with_client(client_id: str, client_manager):
 
 def send_command_to_client(command: str, client):
     try:
-        client.send(command)
-        response = client.receive()
+        client.conn.send(command.encode())
+        response = client.conn.recv(4096).decode()
 
         if response:
             print(response)
