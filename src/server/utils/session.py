@@ -52,4 +52,6 @@ class Session:
             "ip": self.addr[0],
             "port": self.addr[1],
             "status": self.status,
+            "os": "Windows",
+            "user": "admin"
         }

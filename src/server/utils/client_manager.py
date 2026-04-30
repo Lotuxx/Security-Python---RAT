@@ -1,15 +1,9 @@
 import threading
 import uuid
-from dataclasses import dataclass
+
 from .logger import logger
+from .session import Session
 
-
-@dataclass
-class ClientSession:
-    id: str
-    conn: object   # socket object
-    addr: tuple
-    status: str = "connected"
 
 
 class ClientManager:
@@ -22,10 +16,10 @@ class ClientManager:
     def add(self, conn, addr) -> str:
         client_id = str(uuid.uuid4())[:8]
 
-        session = ClientSession(
-            id=client_id,
-            conn=conn,
-            addr=addr,
+        session = Session(
+            client_id,
+            conn,
+            addr,
         )
 
         with self._lock:
@@ -40,7 +34,7 @@ class ClientManager:
         with self._lock:
             if client_id in self._clients:
                 try:
-                    self._clients[client_id].conn.close()
+                    self._clients[client_id].close()
                 except Exception:
                     pass
 

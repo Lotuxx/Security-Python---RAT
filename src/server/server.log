@@ -49,3 +49,100 @@ Traceback (most recent call last):
     data = client.recv(4096).decode()
            ^^^^^^^^^^^^^^^^^
 ConnectionResetError: [WinError 10054] Une connexion existante a dû être fermée par l’hôte distant
+[2026-04-30 22:35:49] [INFO] Server started. Type 'help' for commands.
+[2026-04-30 22:35:49] [INFO] Listening on 127.0.0.1:4444
+[2026-04-30 22:35:53] [DEBUG] 
+Available commands:
+    help                Show this help
+    list                List connected clients
+    interact <id>       Interact with a client
+    exit                Exit server
+        
+[2026-04-30 22:36:13] [INFO] Connection from 127.0.0.1:8180
+[2026-04-30 22:36:13] [INFO] [+] Client connected: 09342f22 (127.0.0.1:8180)
+[2026-04-30 22:36:22] [INFO] Connected clients:
+[2026-04-30 22:36:22] [INFO] ----------------------------------------
+[2026-04-30 22:36:22] [INFO] ID: 09342f22 | IP: 127.0.0.1 | Status: connected
+[2026-04-30 22:36:22] [INFO] ----------------------------------------
+[2026-04-30 22:36:34] [DEBUG] 
+Available commands:
+    help                Show this help
+    list                List connected clients
+    interact <id>       Interact with a client
+    exit                Exit server
+        
+[2026-04-30 22:37:02] [WARNING] Server disconnected (connection reset)
+[2026-04-30 22:37:02] [INFO] Client stopped
+[2026-04-30 22:47:07] [INFO] Server started. Type 'help' for commands.
+[2026-04-30 22:47:07] [INFO] Listening on 127.0.0.1:4444
+[2026-04-30 22:47:17] [DEBUG] 
+Available commands:
+    help                Show this help
+    list                List connected clients
+    interact <id>       Interact with a client
+    exit                Exit server
+        
+[2026-04-30 22:47:23] [INFO] Exiting...
+[2026-04-30 22:47:35] [INFO] Server started. Type 'help' for commands.
+[2026-04-30 22:47:35] [INFO] Listening on 127.0.0.1:4444
+[2026-04-30 22:47:39] [DEBUG] 
+Available commands:
+    help                Show this help
+    list                List connected clients
+    interact <id>       Interact with a client
+    exit                Exit server
+        
+[2026-04-30 22:47:48] [INFO] Connection from 127.0.0.1:10019
+[2026-04-30 22:47:48] [INFO] [+] Client connected: 21648d36 (127.0.0.1:10019)
+[2026-04-30 22:47:55] [ERROR] [!] Unknown command: lisy
+[2026-04-30 22:48:02] [INFO] Connected clients:
+[2026-04-30 22:48:02] [INFO] ----------------------------------------
+[2026-04-30 22:48:02] [INFO] ID: 21648d36 | IP: 127.0.0.1 | Status: connected
+[2026-04-30 22:48:02] [INFO] ----------------------------------------
+[2026-04-30 22:48:15] [INFO] [+] Interacting with client 21648d36 (127.0.0.1)
+[2026-04-30 22:48:15] [INFO] Type 'back' to return.
+
+[2026-04-30 22:48:19] [DEBUG] 
+Session commands:
+    info                        Show client info
+    upload <local> <remote>     Upload file
+    download <remote> <local>   Download file
+    back                        Return to main menu
+
+Any other command will be executed on the client.
+
+[2026-04-30 22:48:24] [INFO] 
+Client info:
+[2026-04-30 22:48:24] [INFO] ID      : 21648d36
+[2026-04-30 22:48:24] [ERROR] Interact error: 'Session' object has no attribute 'ip'
+Traceback (most recent call last):
+  File "\\wsl.localhost\Ubuntu\home\ubuntu\4A-Securite_Informatique\Security_Python\project\github\Security-Python---RAT\src\server\utils\command_handler.py", line 74, in interact_with_client
+    print_client_info(client)
+  File "\\wsl.localhost\Ubuntu\home\ubuntu\4A-Securite_Informatique\Security_Python\project\github\Security-Python---RAT\src\server\utils\command_handler.py", line 112, in print_client_info
+    logger.info(f"IP      : {client.ip}")
+                             ^^^^^^^^^
+AttributeError: 'Session' object has no attribute 'ip'
+[2026-04-30 22:49:32] [DEBUG] 
+Available commands:
+    help                Show this help
+    list                List connected clients
+    interact <id>       Interact with a client
+    exit                Exit server
+        
+[2026-04-30 22:49:42] [INFO] [+] Interacting with client 21648d36 (127.0.0.1)
+[2026-04-30 22:49:42] [INFO] Type 'back' to return.
+
+[2026-04-30 22:49:49] [DEBUG] 
+Session commands:
+    info                        Show client info
+    upload <local> <remote>     Upload file
+    download <remote> <local>   Download file
+    back                        Return to main menu
+
+Any other command will be executed on the client.
+
+[2026-04-30 22:51:25] [INFO] [+] Interacting with client 21648d36 (127.0.0.1)
+[2026-04-30 22:51:25] [INFO] Type 'back' to return.
+
+[2026-04-30 22:51:28] [INFO] [SERVER CMD] exit
+[2026-04-30 22:51:43] [INFO] [SERVER CMD] whoami

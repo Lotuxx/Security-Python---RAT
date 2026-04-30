@@ -27,19 +27,22 @@ def handle_command(command: str, client_manager):
 
 
 #-------------- COMMANDS IMPLEMENTATION -------------#
-
 def list_clients(client_manager):
     clients = client_manager.get_all()
 
     if not clients:
-        logger.info("[!] No connected clients.")
+        logger.info("No connected clients.")
         return
 
-    logger.info("\nConnected clients:")
+    logger.info("Connected clients:")
     logger.info("-" * 40)
 
     for client in clients:
-        logger.info(f"ID: {client.id} | IP: {client.addr[0]} | Status: {client.status}")
+        info = client.info()
+
+        logger.info(
+            f"ID: {info['id']} | IP: {info['ip']} | Status: {info['status']}"
+        )
 
     logger.info("-" * 40)
 
@@ -48,10 +51,10 @@ def interact_with_client(client_id: str, client_manager):
     client = client_manager.get(client_id)
 
     if not client:
-        logger.info("[!] Client not found.")
+        logger.warning("[!] Client not found.")
         return
 
-    logger.info(f"[+] Interacting with client {client.id} ({client.ip})")
+    logger.info(f"[+] Interacting with client {client.id} ({client.addr[0]})")
     logger.info("Type 'back' to return.\n")
 
     while True:
@@ -80,15 +83,19 @@ def interact_with_client(client_id: str, client_manager):
                 send_command_to_client(cmd, client)
 
         except KeyboardInterrupt:
-            logger.exception("\n[!] Type 'back' to exit session.")
+            logger.warning("Use 'back' to exit session.")
+
+        except Exception as e:
+            logger.exception(f"Interact error: {e}")
+            break
 
 
 #---------- SESSION COMMANDS ---------#
 
 def send_command_to_client(command: str, client):
     try:
-        client.conn.send(command.encode())
-        response = client.conn.recv(4096).decode()
+        client.send(command)
+        response = client.receive()
 
         if response:
             print(response)
