@@ -265,3 +265,80 @@ record_audio       Record microphone
 [2026-05-01 02:47:21] [INFO] [CMD] record_audio
 [2026-05-01 02:47:21] [INFO] Fake audio recorded
 [2026-05-01 02:47:24] [INFO] Leaving session...
+[2026-05-01 02:59:49] [INFO] Exiting...
+[2026-05-01 02:59:49] [WARNING] Server disconnected (reset)
+[2026-05-01 02:59:49] [INFO] Client stopped
+[2026-05-01 08:26:31] [INFO] Server started. Type 'help' for commands.
+[2026-05-01 08:26:41] [ERROR] 
+[!] Use 'exit' to quit.
+Traceback (most recent call last):
+  File "\\wsl.localhost\Ubuntu\home\ubuntu\4A-Securite_Informatique\Security_Python\project\github\Security-Python---RAT\src\server\utils\ui.py", line 14, in start
+    command = input("server > ").strip()
+              ^^^^^^^^^^^^^^^^^^
+  File "<frozen codecs>", line 319, in decode
+KeyboardInterrupt
+[2026-05-01 08:29:29] [DEBUG] 
+Available commands:
+    help                Show this help
+    list                List connected clients
+    interact <id>       Interact with a client
+    exit                Exit server
+        
+[2026-05-01 11:27:16] [INFO] Server started. Type 'help' for commands.
+[2026-05-01 11:27:18] [ERROR] 
+[!] Use 'exit' to quit.
+Traceback (most recent call last):
+  File "\\wsl.localhost\Ubuntu\home\ubuntu\4A-Securite_Informatique\Security_Python\project\github\Security-Python---RAT\src\server\utils\ui.py", line 14, in start
+    command = input("server > ").strip()
+              ^^^^^^^^^^^^^^^^^^
+  File "<frozen codecs>", line 319, in decode
+KeyboardInterrupt
+[2026-05-01 11:27:38] [INFO] Server started. Type 'help' for commands.
+[2026-05-01 11:28:06] [ERROR] 
+[!] Use 'exit' to quit.
+Traceback (most recent call last):
+  File "\\wsl.localhost\Ubuntu\home\ubuntu\4A-Securite_Informatique\Security_Python\project\github\Security-Python---RAT\src\server\utils\ui.py", line 14, in start
+    command = input("server > ").strip()
+              ^^^^^^^^^^^^^^^^^^
+  File "<frozen codecs>", line 319, in decode
+KeyboardInterrupt
+[2026-05-01 11:28:13] [INFO] Server started. Type 'help' for commands.
+[2026-05-01 11:28:13] [INFO] Listening securely on 127.0.0.1:4444
+[2026-05-01 11:28:24] [INFO] Secure connection from 127.0.0.1:15388
+[2026-05-01 11:28:24] [INFO] [+] Client connected: 7382e800 (127.0.0.1:15388)
+[2026-05-01 11:28:37] [DEBUG] 
+Available commands:
+    help                Show this help
+    list                List connected clients
+    interact <id>       Interact with a client
+    exit                Exit server
+        
+[2026-05-01 11:28:40] [INFO] Connected clients:
+[2026-05-01 11:28:40] [INFO] ----------------------------------------
+[2026-05-01 11:28:40] [INFO] ID: 7382e800 | IP: 127.0.0.1 | Status: connected
+[2026-05-01 11:28:40] [INFO] ----------------------------------------
+[2026-05-01 11:29:05] [INFO] Session started with 7382e800 (127.0.0.1)
+[2026-05-01 11:29:17] [INFO] 
+Available commands:
+
+help               Show this help
+back               Exit session
+disconnect         Disconnect client
+
+download           Get file from victim
+upload             Send file to victim
+shell              Open remote shell
+ipconfig           Network configuration
+screenshot         Capture screen
+search             Find file on system
+hashdump           Dump credentials (SAM/shadow)
+keylogger          Start keylogging
+webcam_snapshot    Take webcam photo
+webcam_stream      Live webcam feed
+record_audio       Record microphone
+
+[2026-05-01 11:29:22] [INFO] [CMD] ipconfig
+[2026-05-01 11:29:22] [INFO] Fake IP config:
+IP: 127.0.0.1
+Gateway: 192.168.1.1
+[2026-05-01 11:32:12] [WARNING] Use 'back' to exit session

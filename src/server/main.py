@@ -1,5 +1,6 @@
 import socket
 import threading
+import ssl
 
 from utils.client_manager import ClientManager
 from utils.ui import CLI
@@ -8,32 +9,41 @@ from utils.logger import logger
 
 def start_listener(client_manager, host="127.0.0.1", port=4444):
     def listener():
-        server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        # --- TLS context --- #
+        context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+        context.load_cert_chain(certfile="cert.pem", keyfile="key.pem")
 
-        # --- allow fast restart ---
-        server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        # --- RAW SOCKET ---
+        raw_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-        server.bind((host, port))
-        server.listen()
+        # --- allow fast restart --- #
+        raw_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
-        logger.info(f"Listening on {host}:{port}")
+        raw_socket.bind((host, port))
+        raw_socket.listen()
+
+        logger.info(f"Listening securely on {host}:{port}")
 
         try:
             while True:
-                client_socket, addr = server.accept()
-                logger.info(f"Connection from {addr[0]}:{addr[1]}")
+                client_socket, addr = raw_socket.accept()
 
-                client_manager.add(client_socket, addr)
+                # --- Wrap EACH client connection --- #
+                secure_client = context.wrap_socket(client_socket, server_side=True)
+
+                logger.info(f"Secure connection from {addr[0]}:{addr[1]}")
+
+                client_manager.add(secure_client, addr)
 
         except Exception as e:
             logger.error(f"Listener error: {e}")
 
         finally:
-            server.close()
+            raw_socket.close()
 
-    # 🔥 THIS WAS MISSING
     thread = threading.Thread(target=listener, daemon=True)
     thread.start()
+
 
 def main():
     client_manager = ClientManager()
