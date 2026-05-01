@@ -7,23 +7,27 @@ class Session:
         self.id = client_id
         self.conn = conn
         self.addr = addr
+
+        # -------- SESSION STATE -------- #
         self.status = "connected"
+        self.mode = "normal"   # normal | shell
 
+        # buffer for streaming output (shell, etc.)
+        self.buffer = []
 
-    # --------- SEND DATA --------- #
-    def send(self, data: dict):
+    # -------- SEND -------- #
+    def send(self, packet: dict):
         try:
-            if not isinstance(data, dict):
-                raise ValueError("Session.send() expects dict")
+            if not isinstance(packet, dict):
+                raise ValueError("Session.send expects dict")
 
-            self.conn.send(encode_message(data))
+            self.conn.send(encode_message(packet))
 
         except Exception as e:
-            logger.error(f"[{self.id}] Send error: {e}")
+            logger.error(f"[{self.id}] send error: {e}")
             self.status = "disconnected"
 
-
-    # -------- RECEIVE DATA -------- #
+    # -------- RECEIVE (SAFE) -------- #
     def receive(self):
         try:
             data = self.conn.recv(4096)
@@ -32,22 +36,44 @@ class Session:
                 self.status = "disconnected"
                 return None
 
-            decoded = decode_message(data)
+            msg = decode_message(data)
 
-            if not decoded:
+            if not msg:
                 return {
-                    "type": "response",
-                    "result": data.decode(errors="ignore")
+                    "type": "raw",
+                    "data": data.decode(errors="ignore")
                 }
 
-            return decoded
+            return msg
 
         except Exception as e:
-            logger.error(f"[{self.id}] Receive error: {e}")
+            logger.error(f"[{self.id}] receive error: {e}")
+            self.status = "disconnected"
             return None
 
+    # -------- ROUTE MESSAGE -------- #
+    def handle_message(self, msg):
+        if not msg:
+            return None
 
-    # ------- CLOSE CONNECTION ------- #
+        # shell streaming output
+        if msg["type"] == "shell_output":
+            return "shell_output", msg.get("data")
+
+        # normal response
+        if msg["type"] == "response":
+            return "response", msg.get("result")
+
+        return "unknown", msg
+
+    # -------- MODE MANAGEMENT -------- #
+    def set_mode(self, mode: str):
+        self.mode = mode
+
+    def is_shell(self):
+        return self.mode == "shell"
+
+    # -------- CLOSE -------- #
     def close(self):
         try:
             self.conn.close()
@@ -56,14 +82,12 @@ class Session:
 
         self.status = "disconnected"
 
-
-    # --------- INFO (for display) --------- #
+    # -------- INFO -------- #
     def info(self):
         return {
             "id": self.id,
             "ip": self.addr[0],
             "port": self.addr[1],
             "status": self.status,
-            "os": "Windows",
-            "user": "admin"
+            "mode": self.mode
         }

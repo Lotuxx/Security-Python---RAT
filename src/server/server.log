@@ -342,3 +342,268 @@ record_audio       Record microphone
 IP: 127.0.0.1
 Gateway: 192.168.1.1
 [2026-05-01 11:32:12] [WARNING] Use 'back' to exit session
+[2026-05-01 11:47:21] [WARNING] No response
+[2026-05-01 12:05:27] [INFO] Securely connected to server
+[2026-05-01 12:05:27] [INFO] Secure connection from 127.0.0.1:53446
+[2026-05-01 12:05:27] [INFO] [+] Client connected: 06bef329 (127.0.0.1:53446)
+[2026-05-01 12:05:33] [INFO] 
+Available commands:
+
+help               Show this help
+back               Exit session
+disconnect         Disconnect client
+
+download           Get file from victim
+upload             Send file to victim
+shell              Open remote shell
+ipconfig           Network configuration
+screenshot         Capture screen
+search             Find file on system
+hashdump           Dump credentials (SAM/shadow)
+keylogger          Start keylogging
+webcam_snapshot    Take webcam photo
+webcam_stream      Live webcam feed
+record_audio       Record microphone
+
+[2026-05-01 12:05:51] [INFO] Leaving session...
+[2026-05-01 12:05:55] [INFO] Connected clients:
+[2026-05-01 12:05:55] [INFO] ----------------------------------------
+[2026-05-01 12:05:55] [INFO] ID: 7382e800 | IP: 127.0.0.1 | Status: disconnected
+[2026-05-01 12:05:55] [INFO] ID: 06bef329 | IP: 127.0.0.1 | Status: connected
+[2026-05-01 12:05:55] [INFO] ----------------------------------------
+[2026-05-01 12:06:17] [INFO] Session started with 06bef329 (127.0.0.1)
+[2026-05-01 12:06:24] [INFO] [CMD] shell
+[2026-05-01 12:06:24] [INFO] Fake shell started
+[2026-05-01 16:53:55] [INFO] Server started. Type 'help' for commands.
+[2026-05-01 16:53:55] [INFO] Listening securely on 127.0.0.1:4444
+[2026-05-01 16:54:13] [INFO] Securely connected to server
+[2026-05-01 16:54:13] [INFO] Secure connection from 127.0.0.1:37218
+[2026-05-01 16:54:13] [INFO] [+] Client connected: 817b049d (127.0.0.1:37218)
+[2026-05-01 16:54:24] [DEBUG] 
+Available commands:
+    help                Show this help
+    list                List connected clients
+    interact <id>       Interact with a client
+    exit                Exit server
+        
+[2026-05-01 16:54:46] [INFO] Connected clients:
+[2026-05-01 16:54:46] [INFO] ----------------------------------------
+[2026-05-01 16:54:46] [INFO] ID: 817b049d | IP: 127.0.0.1 | Status: connected
+[2026-05-01 16:54:46] [INFO] ----------------------------------------
+[2026-05-01 16:54:56] [INFO] Session started with 817b049d (127.0.0.1)
+[2026-05-01 16:54:59] [INFO] 
+Available commands:
+
+help               Show this help
+back               Exit session
+disconnect         Disconnect client
+
+download           Get file from victim
+upload             Send file to victim
+shell              Open remote shell
+ipconfig           Network configuration
+screenshot         Capture screen
+search             Find file on system
+hashdump           Dump credentials (SAM/shadow)
+keylogger          Start keylogging
+webcam_snapshot    Take webcam photo
+webcam_stream      Live webcam feed
+record_audio       Record microphone
+
+[2026-05-01 16:55:06] [WARNING] Unknown command
+[2026-05-01 16:55:11] [INFO] [CMD] ipconfig
+[2026-05-01 16:55:11] [INFO] Fake IP config:
+IP: 127.0.0.1
+Gateway: 192.168.1.1
+[2026-05-01 16:55:17] [INFO] Entering interactive shell (type 'exit' to leave)
+[2026-05-01 16:55:24] [INFO] [CMD] shell_exec
+[2026-05-01 16:55:40] [INFO] [CMD] shell_exec
+[2026-05-01 16:55:51] [INFO] [CMD] shell_exec
+[2026-05-01 16:55:59] [INFO] [CMD] shell_exec
+[2026-05-01 16:56:17] [INFO] [CMD] shell_exec
+[2026-05-01 16:56:38] [INFO] [CMD] shell_exec
+[2026-05-01 16:57:06] [INFO] [CMD] shell_exec
+[2026-05-01 17:06:22] [WARNING] Use 'exit' to leave shell
+[2026-05-01 17:06:39] [INFO] Server started. Type 'help' for commands.
+[2026-05-01 17:06:39] [INFO] Listening securely on 127.0.0.1:4444
+[2026-05-01 17:06:47] [INFO] Securely connected to server
+[2026-05-01 17:06:47] [INFO] Secure connection from 127.0.0.1:15767
+[2026-05-01 17:06:47] [INFO] [+] Client connected: 883d74f8 (127.0.0.1:15767)
+[2026-05-01 17:07:00] [INFO] Session started with 883d74f8 (127.0.0.1)
+[2026-05-01 17:07:02] [INFO] Entering interactive shell (type 'exit' to leave)
+[2026-05-01 17:07:05] [INFO] [CMD] shell_exec
+[2026-05-01 17:07:05] [INFO] Le volume dans le lecteur C s'appelle OS
+ Le num‚ro de s‚rie du volume est 8AE8-2320
+
+ R‚pertoire de C:\
+
+13/12/2023  14:23    <DIR>          AMD
+28/09/2025  20:36            12ÿ288 DumpStack.log
+15/12/2023  15:48    <DIR>          ESD
+17/09/2023  00:48    <DIR>          eSupport
+14/07/2025  16:58    <DIR>          inetpub
+17/07/2025  11:10                90 logUploaderSettings.ini
+17/07/2025  11:10                90 logUploaderSettings_temp.ini
+18/09/2023  14:19    <DIR>          msys64
+01/04/2024  09:26    <DIR>          PerfLogs
+26/01/2026  13:45    <DIR>          Program Files
+14/07/2025  19:53    <DIR>          Program Files (x86)
+14/11/2023  21:06    <DIR>          sqlite3
+14/07/2025  17:08    <DIR>          Users
+30/04/2026  12:38    <DIR>          Windows
+               3 fichier(s)           12ÿ468 octets
+              11 R‚p(s)  35ÿ209ÿ465ÿ856 octets libres
+[2026-05-01 17:07:35] [INFO] [CMD] shell_exec
+[2026-05-01 17:07:35] [INFO] [no output]
+[2026-05-01 17:08:06] [INFO] [CMD] shell_exec
+[2026-05-01 17:08:06] [INFO] Le fichier sp‚cifi‚ est introuvable.
+[2026-05-01 17:08:29] [INFO] [CMD] shell_exec
+[2026-05-01 17:08:29] [INFO] laptop-pn0kaiiu\salla
+[2026-05-01 17:08:46] [INFO] [CMD] shell_exec
+[2026-05-01 17:08:46] [INFO] {"type": "response", "status": "ok", "result": "Pour plus d'informations sur une commande sp\u201acifique, entrez HELP\nsuivi de la commande.\nASSOC          Affiche ou modifie les applications associ\u201aes aux extensions de\n               fichiers.\nATTRIB         Affiche ou modifie les attributs d'un fichier.\nBREAK          Active ou d\u201asactive le contr\u201cle \u201atendu de CTRL+C.\nBCDEDIT        D\u201afinit les propri\u201at\u201as dans la base de donn\u201aes de d\u201amarrage pour\n               le contr\u201cle du chargement d'amor\u2021age.\nCACLS          Affiche ou modifie les listes de contr\u201cles d'acc\u0160s aux fichiers.\nCALL           Appelle un fichier de commandes \u2026 partir d'un autre fichier de\n               commandes.\nCD             Modifie le r\u201apertoire ou affiche le r\u201apertoire actif.\nCHCP           Modifie ou affiche le num\u201aro de la page de code active.\nCHDIR          Modifie le r\u201apertoire ou affiche le nom du r\u201apertoire actif.\nCHKDSK         V\u201arifie un disque et affiche un rapport d'\u201atat.\nCHKNTFS        Affiche ou modifie la v\u201arification du disque au d\u201amarrage.\nCLS            Efface l'\u201acran.\nCMD            Ex\u201acute une nouvelle instance de l'interpr\u201ateur de commandes de\n               Windows.\nCOLOR          Modifie les couleurs du premier plan et de l'arri\u0160re-plan de la\n               console.\nCOMP           Compare les contenus de deux fichiers ou groupes de fichiers.\nCOMPACT        Modifie ou affiche la compression des fichiers sur une\n               partition NTFS.\nCONVERT        Convertit des volumes FAT en volumes NTFS. Vous ne pouvez pas\n               convertir le lecteur en cours d'utilisation.\nCOPY           Copie un ou plusieurs fichiers.\nDATE           Affiche ou d\u201afinit la date.\nDEL            Supprime un ou plusieurs fichiers.\nDIR            Affiche la liste des fichiers et des sous-r\u201apertoires d'un\n               r\u201apertoire.\nDISKPART       Affiche ou configure les propri\u201at\u201as d'une partition de disque.\nDOSKEY         Modifie les lignes de commande, rappelle des commandes Windows,\n               et cr\u201ae des macros.\nDRIVERQUERY    Affiche l'\u201atat et les propri\u201at\u201as du pilote de p\u201ariph\u201arique en\n               cours d'utilisation.\nECHO           Affiche des messages ou active/d\u201asactive l'affichage des\n               commandes.\nENDLOCAL       Stoppe la localisation des modifications d'environnement dans\n               un fichier de commandes.\nERASE          Supprime un ou plusieurs fichiers.\nEXIT           Quitte l'interpr\u201ateur de commandes (CMD.EXE).\nFC             Compare deux fichiers ou groupes de fichiers et affiche \n               les diff\u201arences.\nFIND           Recherche une cha\u0152ne de caract\u0160res dans un ou plusieurs\n               fichiers.\nFINDSTR        Cherche des cha\u0152nes dans les fichiers.\nFOR            Ex\u201acute une commande sur chaque fichier d'un ensemble de\n               fichiers.\nFORMAT         Formate un disque devant \u02c6tre utilis\u201a avec Windows.\nFSUTIL         Affiche ou configure les propri\u201at\u201as du syst\u0160me de fichiers.\nFTYPE          Affiche ou modifie les types de fichiers utilis\u201as dans les\n               associations d'extensions.\nGOTO           Indique l'ex\u201acution d'un fichier de commandes pour une ligne\n               identifi\u201ae par une \u201atiquette.\nGPRESULT       Affiche les informations de strat\u201agie de groupe pour un\n               ordinateur ou un utilisateur.\nHELP           Affiche des informations sur les commandes de Windows.\nICACLS         Afficher, modifier, sauvegarder ou restaurer les listes de\n               contr\u201cle d'acc\u0160s pour les fichiers et les r\u201apertoires.\nIF             Effectue un traitement conditionnel dans un fichier de\n               commandes.\nLABEL          Cr\u201ae, modifie ou supprime le nom de volume d'un disque.\nMD             Cr\u201ae un r\u201apertoire.\
+[2026-05-01 17:09:04] [INFO] [CMD] shell_exec
+\u201ae un r\u201apertoire.\nMKLINK         Cr\u201aer des liens symboliques et des liens physiques\nMODE           Configure un p\u201ariph\u201arique du syst\u0160me.\nMORE           Affiche la sortie \u201acran par \u201acran.\nMOVE           D\u201aplace un ou plusieurs fichiers d'un r\u201apertoire \n               \u2026 un autre.\nOPENFILES      Affiche les fichiers partag\u201as ouverts \u2026 distance par les\n               utilisateurs.\nPATH           Affiche ou d\u201afinit le chemin de recherche des fichiers\n               ex\u201acutables.\nPAUSE          Interrompt l'ex\u201acution d'un fichier de commandes et affiche un\n               message.\nPOPD           Restaure la valeur pr\u201ac\u201adente du r\u201apertoire actif enregistr\u201ae\n               par PUSHD.\nPRINT          Imprime un fichier texte.\nPROMPT         Modifie l'invite de commande de Windows.\nPUSHD          Enregistre le r\u201apertoire actif puis le modifie.\nRD             Supprime un r\u201apertoire.\nRECOVER        R\u201acup\u0160re l'information lisible d'un disque d\u201afectueux.\nREM            Ins\u0160re un commentaire dans un fichier de commandes ou\n               CONFIG.SYS.\nREN            Renomme un ou plusieurs fichiers.\nRENAME         Renomme un ou plusieurs fichiers.\nREPLACE        Remplace des fichiers.\nRMDIR          Supprime un r\u201apertoire.\nROBOCOPY       Utilitaire avanc\u201a pour copier les fichiers et les\n               arborescences de r\u201apertoires\nSET            Affiche, d\u201afinit ou supprime des variables d'environnement\n               Windows.\nSETLOCAL       Commence la localisation des modifications d'environnement dans\n               un fichier de commandes.\nSC             Affiche ou configure les services (processus en arri\u0160re-plan).\nSCHTASKS       Planifie les commandes et les programmes \u2026 ex\u201acuter sur\n               l'ordinateur.\nSHIFT          Modifie la position des param\u0160tres rempla\u2021ables dans un fichier\n               de commandes.\nSHUTDOWN       Permet un arr\u02c6t local ou distant correct de l'ordinateur.\nSORT           Trie les entr\u201aes.\nSTART          Ouvre une fen\u02c6tre s\u201apar\u201ae pour l'ex\u201acution d'un programme ou\n               d'une commande sp\u201acifique.\nSUBST          Associe un chemin d'acc\u0160s \u2026 une lettre de lecteur.\nSYSTEMINFO     Affiche les propri\u201at\u201as et la configuration sp\u201acifiques de\n               l'ordinateur.\nTASKLIST       Affiche toutes les t\u0192ches en cours d'ex\u201acution, y compris les\n               services.\nTASKKILL       Termine ou interrompt un processus ou une application en cours\n               d'ex\u201acution.\nTIME           Affiche ou d\u201afinit l'heure du syst\u0160me.\nTITLE          D\u201afinit le titre de la fen\u02c6tre pour une session CMD.EXE.\nTREE           Affiche le graphisme de la structure de r\u201apertoire d'un lecteur\n               ou d'un chemin d'acc\u0160s.\nTYPE           Affiche le contenu d'un fichier texte.\nVER            Affiche la version de Windows.\nVERIFY         Demande \u2026 Windows de v\u201arifier si vos fichiers sont\n               correctement \u201acrits sur le disque.\nVOL            Affiche le nom et le num\u201aro de s\u201arie d'un volume de disque.\nXCOPY          Copie les fichiers et les arborescences de r\u201apertoires.\nWMIC           Affiche les informations WMI dans l'interface de commande\n               interactive.\n\nPour obtenir plus d'informations sur les outils, consultez la r\u201af\u201arence de\ncommande en ligne dans l'aide en ligne."}
+[2026-05-01 17:09:16] [INFO] [CMD] shell_exec
+st pas prise en charge par l'utilitaire d'aide. Essayez
+"whoami /?".
+[2026-05-01 17:09:32] [INFO] {"type": "response", "status": "ok", "result": "Pour plus d'informations sur une commande sp\u201acifique, entrez HELP\nsuivi de la commande.\nASSOC          Affiche ou modifie les applications associ\u201aes aux extensions de\n               fichiers.\nATTRIB         Affiche ou modifie les attributs d'un fichier.\nBREAK          Active ou d\u201asactive le contr\u201cle \u201atendu de CTRL+C.\nBCDEDIT        D\u201afinit les propri\u201at\u201as dans la base de donn\u201aes de d\u201amarrage pour\n               le contr\u201cle du chargement d'amor\u2021age.\nCACLS          Affiche ou modifie les listes de contr\u201cles d'acc\u0160s aux fichiers.\nCALL           Appelle un fichier de commandes \u2026 partir d'un autre fichier de\n               commandes.\nCD             Modifie le r\u201apertoire ou affiche le r\u201apertoire actif.\nCHCP           Modifie ou affiche le num\u201aro de la page de code active.\nCHDIR          Modifie le r\u201apertoire ou affiche le nom du r\u201apertoire actif.\nCHKDSK         V\u201arifie un disque et affiche un rapport d'\u201atat.\nCHKNTFS        Affiche ou modifie la v\u201arification du disque au d\u201amarrage.\nCLS            Efface l'\u201acran.\nCMD            Ex\u201acute une nouvelle instance de l'interpr\u201ateur de commandes de\n               Windows.\nCOLOR          Modifie les couleurs du premier plan et de l'arri\u0160re-plan de la\n               console.\nCOMP           Compare les contenus de deux fichiers ou groupes de fichiers.\nCOMPACT        Modifie ou affiche la compression des fichiers sur une\n               partition NTFS.\nCONVERT        Convertit des volumes FAT en volumes NTFS. Vous ne pouvez pas\n               convertir le lecteur en cours d'utilisation.\nCOPY           Copie un ou plusieurs fichiers.\nDATE           Affiche ou d\u201afinit la date.\nDEL            Supprime un ou plusieurs fichiers.\nDIR            Affiche la liste des fichiers et des sous-r\u201apertoires d'un\n               r\u201apertoire.\nDISKPART       Affiche ou configure les propri\u201at\u201as d'une partition de disque.\nDOSKEY         Modifie les lignes de commande, rappelle des commandes Windows,\n               et cr\u201ae des macros.\nDRIVERQUERY    Affiche l'\u201atat et les propri\u201at\u201as du pilote de p\u201ariph\u201arique en\n               cours d'utilisation.\nECHO           Affiche des messages ou active/d\u201asactive l'affichage des\n               commandes.\nENDLOCAL       Stoppe la localisation des modifications d'environnement dans\n               un fichier de commandes.\nERASE          Supprime un ou plusieurs fichiers.\nEXIT           Quitte l'interpr\u201ateur de commandes (CMD.EXE).\nFC             Compare deux fichiers ou groupes de fichiers et affiche \n               les diff\u201arences.\nFIND           Recherche une cha\u0152ne de caract\u0160res dans un ou plusieurs\n               fichiers.\nFINDSTR        Cherche des cha\u0152nes dans les fichiers.\nFOR            Ex\u201acute une commande sur chaque fichier d'un ensemble de\n               fichiers.\nFORMAT         Formate un disque devant \u02c6tre utilis\u201a avec Windows.\nFSUTIL         Affiche ou configure les propri\u201at\u201as du syst\u0160me de fichiers.\nFTYPE          Affiche ou modifie les types de fichiers utilis\u201as dans les\n               associations d'extensions.\nGOTO           Indique l'ex\u201acution d'un fichier de commandes pour une ligne\n               identifi\u201ae par une \u201atiquette.\nGPRESULT       Affiche les informations de strat\u201agie de groupe pour un\n               ordinateur ou un utilisateur.\nHELP           Affiche des informations sur les commandes de Windows.\nICACLS         Afficher, modifier, sauvegarder ou restaurer les listes de\n               contr\u201cle d'acc\u0160s pour les fichiers et les r\u201apertoires.\nIF             Effectue un traitement conditionnel dans un fichier de\n               commandes.\nLABEL          Cr\u201ae, modifie ou supprime le nom de volume d'un disque.\nMD             Cr\u201ae un r\u201apertoire.\
+[2026-05-01 17:09:58] [INFO] [CMD] shell_exec
+\u201ae un r\u201apertoire.\nMKLINK         Cr\u201aer des liens symboliques et des liens physiques\nMODE           Configure un p\u201ariph\u201arique du syst\u0160me.\nMORE           Affiche la sortie \u201acran par \u201acran.\nMOVE           D\u201aplace un ou plusieurs fichiers d'un r\u201apertoire \n               \u2026 un autre.\nOPENFILES      Affiche les fichiers partag\u201as ouverts \u2026 distance par les\n               utilisateurs.\nPATH           Affiche ou d\u201afinit le chemin de recherche des fichiers\n               ex\u201acutables.\nPAUSE          Interrompt l'ex\u201acution d'un fichier de commandes et affiche un\n               message.\nPOPD           Restaure la valeur pr\u201ac\u201adente du r\u201apertoire actif enregistr\u201ae\n               par PUSHD.\nPRINT          Imprime un fichier texte.\nPROMPT         Modifie l'invite de commande de Windows.\nPUSHD          Enregistre le r\u201apertoire actif puis le modifie.\nRD             Supprime un r\u201apertoire.\nRECOVER        R\u201acup\u0160re l'information lisible d'un disque d\u201afectueux.\nREM            Ins\u0160re un commentaire dans un fichier de commandes ou\n               CONFIG.SYS.\nREN            Renomme un ou plusieurs fichiers.\nRENAME         Renomme un ou plusieurs fichiers.\nREPLACE        Remplace des fichiers.\nRMDIR          Supprime un r\u201apertoire.\nROBOCOPY       Utilitaire avanc\u201a pour copier les fichiers et les\n               arborescences de r\u201apertoires\nSET            Affiche, d\u201afinit ou supprime des variables d'environnement\n               Windows.\nSETLOCAL       Commence la localisation des modifications d'environnement dans\n               un fichier de commandes.\nSC             Affiche ou configure les services (processus en arri\u0160re-plan).\nSCHTASKS       Planifie les commandes et les programmes \u2026 ex\u201acuter sur\n               l'ordinateur.\nSHIFT          Modifie la position des param\u0160tres rempla\u2021ables dans un fichier\n               de commandes.\nSHUTDOWN       Permet un arr\u02c6t local ou distant correct de l'ordinateur.\nSORT           Trie les entr\u201aes.\nSTART          Ouvre une fen\u02c6tre s\u201apar\u201ae pour l'ex\u201acution d'un programme ou\n               d'une commande sp\u201acifique.\nSUBST          Associe un chemin d'acc\u0160s \u2026 une lettre de lecteur.\nSYSTEMINFO     Affiche les propri\u201at\u201as et la configuration sp\u201acifiques de\n               l'ordinateur.\nTASKLIST       Affiche toutes les t\u0192ches en cours d'ex\u201acution, y compris les\n               services.\nTASKKILL       Termine ou interrompt un processus ou une application en cours\n               d'ex\u201acution.\nTIME           Affiche ou d\u201afinit l'heure du syst\u0160me.\nTITLE          D\u201afinit le titre de la fen\u02c6tre pour une session CMD.EXE.\nTREE           Affiche le graphisme de la structure de r\u201apertoire d'un lecteur\n               ou d'un chemin d'acc\u0160s.\nTYPE           Affiche le contenu d'un fichier texte.\nVER            Affiche la version de Windows.\nVERIFY         Demande \u2026 Windows de v\u201arifier si vos fichiers sont\n               correctement \u201acrits sur le disque.\nVOL            Affiche le nom et le num\u201aro de s\u201arie d'un volume de disque.\nXCOPY          Copie les fichiers et les arborescences de r\u201apertoires.\nWMIC           Affiche les informations WMI dans l'interface de commande\n               interactive.\n\nPour obtenir plus d'informations sur les outils, consultez la r\u201af\u201arence de\ncommande en ligne dans l'aide en ligne."}
+[2026-05-01 17:10:09] [INFO] [CMD] shell_exec
+de trois fa‡onsÿ: 
+
+Syntaxe 1ÿ:
+    WHOAMI [/UPN | /FQDN | /LOGONID]
+
+Syntaxe 2 :
+    WHOAMI { [/USER] [/GROUPS] [/CLAIMS] [/PRIV] } [/FO format] [/NH]
+
+Syntaxe 3 :
+    WHOAMI /ALL [/FO format] [/NH]
+
+Description :
+    Cet utilitaire peut ˆtre employ‚ pour obtenir le nom d'utilisateur,
+    les informations de groupe ainsi que les identificateurs de s‚curit‚
+    (SID) respectifs, les revendications,
+    les privilŠges, l'identificateur de connexion (ID de connexion)
+    de l'utilisateur actuel
+    sur le systŠme local (utilisateur actuellement connect‚).
+    Par exemple, qui est l'utilisateur actuellement connect‚ÿ? Si aucun
+    commutateur n'est sp‚cifi‚, l'outil affiche le nom d'utilisateur
+    au format NTLM (domaine\nom_utilisateur).
+
+Liste de paramŠtres :
+    /UPN                    Affiche le nom d'utilisateur au format UPN 
+                            (nom d'utilisateur principal).
+
+    /FQDN                   Affiche le nom d'utilisateur au format FQDN 
+                            (nom de domaine pleinement qualifi‚).
+
+    /USER                   Affiche les informations de l'utilisateur actuel
+                            ainsi que l'identificateur de s‚curit‚ (SID).
+
+    /GROUPS                 Affiche l'appartenance de groupe de l'utilisateur
+                            actuel, le type de compte, les identificateurs de
+                            s‚curit‚ (SID) et les attributs.
+
+    /CLAIMS                 Affiche les revendications de l'utilisateur actuel,
+                            … savoir le nom, les indicateurs, le type et
+                            les valeurs de la revendication.
+
+    /PRIV                   Affiche les privilŠges de s‚curit‚
+                            de l'utilisateur actuel.
+
+    /LOGONID                Affiche l'ID de connexion de l'utilisateur actuel.
+
+    /ALL                    Affiche le nom d'utilisateur actuel, les groupes 
+                            auxquels il appartient ainsi que les identificateurs 
+                            de s‚curit‚ (SID), les revendications et
+                            les privilŠges
+                            du jeton d'accŠs de l'utilisateur actuel.
+
+    /FO       format        Sp‚cifie le format de sortie … afficher.
+                            Les valeurs valides sont TABLE, LIST, CSV.
+                            Les en-tˆtes de colonnes ne s'affichent pas avec
+                            le format CSV.
+                            Le format par d‚faut est TABLE.
+
+    /NH                     Sp‚cifie que les en-tˆtes de colonnes ne doivent pas
+                            s'afficher dans la sortie. Ceci est
+                            uniquement valide pour les formats TABLE et CSV.
+
+    /?                      Affiche ce message d'aide.
+
+Examples:
+    WHOAMI
+    WHOAMI /UPN
+    WHOAMI /FQDN 
+    WHOAMI /LOGONID
+    WHOAMI /USER
+    WHOAMI /USER /FO LIST
+    WHOAMI /USER /FO CSV
+    WHOAMI /GROUPS
+    WHOAMI /GROUPS /FO CSV /NH
+    WHOAMI /CLAIMS
+    WHOAMI /CLAIMS /FO LIST
+    WHOAMI /PRIV
+    WHOAMI /PRIV /FO TABLE
+    WHOAMI /USER /GROUPS
+    WHOAMI /USER /GROUPS /CLAIMS /PRIV
+    WHOAMI /ALL
+    WHOAMI /ALL /FO LIST
+    WHOAMI /ALL /FO CSV /NH
+    WHOAMI /?
+[2026-05-01 17:37:12] [INFO] [no output]
+[2026-05-01 17:37:12] [INFO] [CMD] shell_exec
+[2026-05-01 17:37:21] [INFO] [CMD] shell_exec
+[2026-05-01 17:37:21] [INFO] Le volume dans le lecteur C s'appelle OS
+ Le num‚ro de s‚rie du volume est 8AE8-2320
+
+ R‚pertoire de C:\
+
+13/12/2023  14:23    <DIR>          AMD
+28/09/2025  20:36            12ÿ288 DumpStack.log
+15/12/2023  15:48    <DIR>          ESD
+17/09/2023  00:48    <DIR>          eSupport
+14/07/2025  16:58    <DIR>          inetpub
+17/07/2025  11:10                90 logUploaderSettings.ini
+17/07/2025  11:10                90 logUploaderSettings_temp.ini
+18/09/2023  14:19    <DIR>          msys64
+01/04/2024  09:26    <DIR>          PerfLogs
+26/01/2026  13:45    <DIR>          Program Files
+14/07/2025  19:53    <DIR>          Program Files (x86)
+14/11/2023  21:06    <DIR>          sqlite3
+14/07/2025  17:08    <DIR>          Users
+30/04/2026  12:38    <DIR>          Windows
+               3 fichier(s)           12ÿ468 octets
+              11 R‚p(s)  35ÿ209ÿ334ÿ784 octets libres
+[2026-05-01 17:37:31] [INFO] [CMD] shell_exec
+[2026-05-01 17:37:31] [INFO] Le volume dans le lecteur C s'appelle OS
+ Le num‚ro de s‚rie du volume est 8AE8-2320
+
+ R‚pertoire de C:\
+
+13/12/2023  14:23    <DIR>          AMD
+28/09/2025  20:36            12ÿ288 DumpStack.log
+15/12/2023  15:48    <DIR>          ESD
+17/09/2023  00:48    <DIR>          eSupport
+14/07/2025  16:58    <DIR>          inetpub
+17/07/2025  11:10                90 logUploaderSettings.ini
+17/07/2025  11:10                90 logUploaderSettings_temp.ini
+18/09/2023  14:19    <DIR>          msys64
+01/04/2024  09:26    <DIR>          PerfLogs
+26/01/2026  13:45    <DIR>          Program Files
+14/07/2025  19:53    <DIR>          Program Files (x86)
+14/11/2023  21:06    <DIR>          sqlite3
+14/07/2025  17:08    <DIR>          Users
+30/04/2026  12:38    <DIR>          Windows
+               3 fichier(s)           12ÿ468 octets
+              11 R‚p(s)  35ÿ200ÿ446ÿ464 octets libres
+[2026-05-01 17:37:46] [INFO] [CMD] shell_exec
+[2026-05-01 17:37:46] [INFO] 'ls' n'est pas reconnu en tant que commande interne
+ou externe, un programme ex‚cutable ou un fichier de commandes.
+[2026-05-01 17:37:50] [INFO] [CMD] shell_exec
+[2026-05-01 17:37:53] [INFO] [CMD] shell_exec
+onnu en tant que commande interne
+ou externe, un programme ex‚cutable ou un fichier de commandes.
+[2026-05-01 20:14:04] [WARNING] Use 'exit' to leave shell
