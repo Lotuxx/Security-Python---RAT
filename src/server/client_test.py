@@ -1,53 +1,47 @@
 import socket
+
+from utils.protocol import decode_message, encode_message
 from utils.logger import logger
 
 
-def handle_command(command: str) -> str:
-    """
-    Simulates execution of server commands on victim side.
-    """
-
+# --------- FAKE COMMAND EXECUTOR --------- #
+def handle_command(command: str, args=None) -> str:
     cmd = command.split()[0].lower()
 
-    # --------- SYSTEM INFO COMMANDS --------- #
     if cmd == "ipconfig":
         return "Fake IP config:\nIP: 127.0.0.1\nGateway: 192.168.1.1"
 
     if cmd == "shell":
-        return "Fake shell started (no real execution in test client)"
+        return "Fake shell started"
 
-    # -------- FILE OPERATIONS -------- #
     if cmd == "download":
         return "Fake file sent to server"
 
     if cmd == "upload":
         return "Fake file received from server"
 
-    # --------- SCREEN / MEDIA --------- #
     if cmd == "screenshot":
-        return "Fake screenshot captured: screen.png"
+        return "Fake screenshot captured"
 
     if cmd == "webcam_snapshot":
-        return "Fake webcam image captured: cam.jpg"
+        return "Fake webcam image captured"
 
     if cmd == "record_audio":
-        return "Fake audio recorded: audio.wav"
+        return "Fake audio recorded"
 
-    # ---------- KEYLOGGER / ADVANCED ---------- #
     if cmd == "keylogger":
         return "Fake keylogger started"
 
     if cmd == "hashdump":
-        return "Fake hashdump: user:password123"
+        return "Fake hashdump data"
 
-    # ------- SEARCH ------- #
     if cmd == "search":
-        return "Fake search results: file1.txt, file2.docx"
+        return "Fake search results"
 
-    # ------- DEFAULT ------- #
     return f"Executed: {command}"
 
 
+# -------- MAIN CLIENT LOOP -------- #
 def main():
     host = "127.0.0.1"
     port = 4444
@@ -65,18 +59,29 @@ def main():
                 logger.warning("Server closed connection")
                 break
 
-            command = data.decode().strip()
-            logger.info(f"[SERVER CMD] {command}")
+            msg = decode_message(data)
 
-            # -------- SPECIAL CONTROL COMMANDS -------- #
-            if command == "__DISCONNECT__":
-                logger.warning("Server requested disconnect")
-                break
+            if msg.get("type") == "command":
+                cmd = msg.get("cmd")
+                args = msg.get("args")
 
-            # -------- EXECUTE SIMULATION ------- #
-            response = handle_command(command)
+                logger.info(f"[CMD] {cmd}")
 
-            client.send(response.encode())
+                # ---------------- DISCONNECT ---------------- #
+                if cmd == "disconnect" or cmd == "__DISCONNECT__":
+                    logger.warning("Disconnected by server")
+                    break
+
+                # ---------------- EXECUTE ---------------- #
+                result = handle_command(cmd, args)
+
+                response = {
+                    "type": "response",
+                    "status": "ok",
+                    "result": result
+                }
+
+                client.send(encode_message(response))
 
         except ConnectionResetError:
             logger.warning("Server disconnected (reset)")

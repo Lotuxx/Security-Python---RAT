@@ -147,3 +147,121 @@ Any other command will be executed on the client.
 [2026-04-30 22:51:28] [INFO] [SERVER CMD] exit
 [2026-04-30 22:51:43] [INFO] [SERVER CMD] whoami
 [2026-04-30 23:10:13] [WARNING] Use 'back' to exit session.
+[2026-05-01 02:33:54] [INFO] Server started. Type 'help' for commands.
+[2026-05-01 02:36:18] [ERROR] [!] Unknown command: h
+[2026-05-01 02:36:21] [DEBUG] 
+Available commands:
+    help                Show this help
+    list                List connected clients
+    interact <id>       Interact with a client
+    exit                Exit server
+        
+[2026-05-01 02:36:30] [INFO] No connected clients.
+[2026-05-01 02:36:38] [DEBUG] 
+Available commands:
+    help                Show this help
+    list                List connected clients
+    interact <id>       Interact with a client
+    exit                Exit server
+        
+[2026-05-01 02:39:47] [INFO] Exiting...
+[2026-05-01 02:40:13] [INFO] Server started. Type 'help' for commands.
+[2026-05-01 02:40:13] [INFO] Listening on 127.0.0.1:4444
+[2026-05-01 02:40:24] [DEBUG] 
+Available commands:
+    help                Show this help
+    list                List connected clients
+    interact <id>       Interact with a client
+    exit                Exit server
+        
+[2026-05-01 02:40:39] [INFO] Connected to server
+[2026-05-01 02:40:39] [INFO] Connection from 127.0.0.1:20795
+[2026-05-01 02:40:39] [INFO] [+] Client connected: 363f2cc1 (127.0.0.1:20795)
+[2026-05-01 02:41:06] [INFO] Session started with 363f2cc1 (127.0.0.1)
+[2026-05-01 02:41:12] [INFO] 
+Available commands:
+
+help               Show this help
+back               Exit session
+disconnect         Disconnect client
+
+download           Get file from victim
+upload             Send file to victim
+shell              Open remote shell
+ipconfig           Network configuration
+screenshot         Capture screen
+search             Find file on system
+hashdump           Dump credentials (SAM/shadow)
+keylogger          Start keylogging
+webcam_snapshot    Take webcam photo
+webcam_stream      Live webcam feed
+record_audio       Record microphone
+
+[2026-05-01 02:41:45] [INFO] [-] Client removed: 363f2cc1
+[2026-05-01 02:41:45] [WARNING] Client disconnected
+r
+[2026-05-01 02:41:45] [INFO] Client stopped
+[2026-05-01 02:41:59] [INFO] Connection from 127.0.0.1:63352
+[2026-05-01 02:41:59] [INFO] [+] Client connected: 851f2e7f (127.0.0.1:63352)
+[2026-05-01 02:42:24] [INFO] Session started with 851f2e7f (127.0.0.1)
+[2026-05-01 02:42:36] [INFO] 
+Available commands:
+
+help               Show this help
+back               Exit session
+disconnect         Disconnect client
+
+download           Get file from victim
+upload             Send file to victim
+shell              Open remote shell
+ipconfig           Network configuration
+screenshot         Capture screen
+search             Find file on system
+hashdump           Dump credentials (SAM/shadow)
+keylogger          Start keylogging
+webcam_snapshot    Take webcam photo
+webcam_stream      Live webcam feed
+record_audio       Record microphone
+
+[2026-05-01 02:44:36] [INFO] [CMD] download
+[2026-05-01 02:44:36] [INFO] Fake file sent to server
+[2026-05-01 02:45:06] [INFO] [CMD] upload
+[2026-05-01 02:45:06] [INFO] Fake file received from server
+[2026-05-01 02:45:23] [INFO] [CMD] ipconfig
+[2026-05-01 02:45:23] [INFO] Fake IP config:
+IP: 127.0.0.1
+Gateway: 192.168.1.1
+[2026-05-01 02:45:47] [INFO] 
+Available commands:
+
+help               Show this help
+back               Exit session
+disconnect         Disconnect client
+
+download           Get file from victim
+upload             Send file to victim
+shell              Open remote shell
+ipconfig           Network configuration
+screenshot         Capture screen
+search             Find file on system
+hashdump           Dump credentials (SAM/shadow)
+keylogger          Start keylogging
+webcam_snapshot    Take webcam photo
+webcam_stream      Live webcam feed
+record_audio       Record microphone
+
+[2026-05-01 02:45:58] [INFO] [CMD] shell
+[2026-05-01 02:45:58] [INFO] Fake shell started
+[2026-05-01 02:46:22] [INFO] [CMD] screenshot
+[2026-05-01 02:46:22] [INFO] Fake screenshot captured
+[2026-05-01 02:46:33] [INFO] [CMD] hashdump
+[2026-05-01 02:46:33] [INFO] Fake hashdump data
+[2026-05-01 02:46:41] [INFO] [CMD] search
+[2026-05-01 02:46:41] [INFO] Fake search results
+[2026-05-01 02:47:00] [INFO] [CMD] webcam_snapshot
+[2026-05-01 02:47:00] [INFO] Fake webcam image captured
+[2026-05-01 02:47:12] [INFO] [CMD] webcam_stream
+[2026-05-01 02:47:12] [INFO] Executed: webcam_stream
+[2026-05-01 02:47:21] [INFO] [CMD] record_audio
+[2026-05-01 02:47:21] [INFO] Fake audio recorded
+[2026-05-01 02:47:24] [INFO] Leaving session...

