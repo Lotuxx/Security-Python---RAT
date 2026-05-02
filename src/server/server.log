@@ -607,3 +607,142 @@ ou externe, un programme ex‚cutable ou un fichier de commandes.
 onnu en tant que commande interne
 ou externe, un programme ex‚cutable ou un fichier de commandes.
 [2026-05-01 20:14:04] [WARNING] Use 'exit' to leave shell
+[2026-05-02 10:51:47] [INFO] Server started. Type 'help' for commands.
+[2026-05-02 10:51:47] [INFO] Listening securely on 127.0.0.1:4444
+[2026-05-02 10:52:01] [INFO] Securely connected to server
+[2026-05-02 10:52:01] [INFO] [+] Client 1 connected from 127.0.0.1:17540
+[2026-05-02 10:52:01] [ERROR] Listener error: ClientManager.add() missing 1 required positional argument: 'addr'
+[2026-05-02 11:25:02] [WARNING] [!]Use 'exit' to quit.
+[2026-05-02 11:25:20] [INFO] Server started. Type 'help' for commands.
+[2026-05-02 11:25:20] [INFO] Listening securely on 127.0.0.1:4444
+[2026-05-02 11:26:34] [WARNING] [!]Use 'exit' to quit.
+[2026-05-02 11:26:39] [INFO] Server started. Type 'help' for commands.
+[2026-05-02 11:26:39] [INFO] Listening securely on 127.0.0.1:4444
+[2026-05-02 11:26:43] [WARNING] [!]Use 'exit' to quit.
+[2026-05-02 11:26:51] [INFO] Server started. Type 'help' for commands.
+[2026-05-02 11:26:51] [INFO] Listening securely on 127.0.0.1:4444
+[2026-05-02 11:27:04] [INFO] Securely connected to server
+[2026-05-02 11:27:04] [INFO] [+] Client connected: d7c518f5 (127.0.0.1:25478)
+[2026-05-02 11:27:04] [ERROR] [d7c518f5] listener error: 'Session' object has no attribute 'receive'
+[2026-05-02 11:27:04] [INFO] [-] Client removed: d7c518f5
+[2026-05-02 11:27:04] [INFO] Client stopped
+[2026-05-02 11:30:20] [WARNING] [!]Use 'exit' to quit.
+[2026-05-02 11:30:37] [INFO] Server started. Type 'help' for commands.
+[2026-05-02 11:30:37] [INFO] Listening securely on 127.0.0.1:4444
+[2026-05-02 11:30:48] [INFO] Securely connected to server
+[2026-05-02 11:30:48] [INFO] [+] Client connected: 4f9d485f (127.0.0.1:25490)
+[2026-05-02 11:30:48] [ERROR] [4f9d485f] listener error: 'Session' object has no attribute 'receive'
+[2026-05-02 11:30:48] [INFO] [-] Client removed: 4f9d485f
+[2026-05-02 11:30:48] [INFO] Client stopped
+[2026-05-02 11:41:06] [WARNING] [!]Use 'exit' to quit.
+[2026-05-02 11:41:14] [INFO] Server started. Type 'help' for commands.
+[2026-05-02 11:41:14] [INFO] Listening securely on 127.0.0.1:4444
+[2026-05-02 11:41:21] [INFO] Securely connected to server
+[2026-05-02 11:41:21] [INFO] [+] Client connected: b09fc141 (127.0.0.1:25516)
+[2026-05-02 11:41:33] [INFO] 
+Server commands:
+    list
+    interact <id>
+    help
+    exit
+
+[2026-05-02 11:41:42] [INFO] Connected clients:
+[2026-05-02 11:41:42] [INFO] ----------------------------------------
+[2026-05-02 11:41:42] [INFO] ID: b09fc141 | IP: 127.0.0.1 | Status: connected
+[2026-05-02 11:41:42] [INFO] ----------------------------------------
+[2026-05-02 11:41:58] [INFO] Session started with b09fc141
+[2026-05-02 11:42:04] [INFO] 
+Available commands:
+
+help               Show this help
+back               Exit session
+disconnect         Disconnect client
+
+download           Get file from victim
+upload             Send file to victim
+shell              Open remote shell
+ipconfig           Network configuration
+screenshot         Capture screen
+search             Find file on system
+hashdump           Dump credentials (SAM/shadow)
+keylogger          Start keylogging
+webcam_snapshot    Take webcam photo
+webcam_stream      Live webcam feed
+record_audio       Record microphone
+
+[2026-05-02 11:42:14] [INFO] Entering interactive shell (type 'exit' to leave)
+[2026-05-02 11:42:14] [INFO] [+] Starting persistent shell
+[2026-05-02 11:42:14] [ERROR] SSL error: [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:2559)
+[2026-05-02 11:42:14] [INFO] Client stopped
+ener error: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:2559)
+[2026-05-02 11:42:14] [INFO] [-] Client removed: b09fc141
+[2026-05-02 13:31:46] [WARNING] Use 'exit' to leave shell
+[2026-05-02 13:31:58] [INFO] Server started. Type 'help' for commands.
+[2026-05-02 13:31:58] [INFO] Listening securely on 127.0.0.1:4444
+[2026-05-02 13:32:15] [INFO] Securely connected to server
+[2026-05-02 13:32:15] [INFO] [+] Client connected: 4518a457 (127.0.0.1:56184)
+[2026-05-02 13:32:29] [INFO] Session started with 4518a457
+[2026-05-02 13:32:34] [INFO] 
+Available commands:
+
+help               Show this help
+back               Exit session
+disconnect         Disconnect client
+
+download           Get file from victim
+upload             Send file to victim
+shell              Open remote shell
+ipconfig           Network configuration
+screenshot         Capture screen
+search             Find file on system
+hashdump           Dump credentials (SAM/shadow)
+keylogger          Start keylogging
+webcam_snapshot    Take webcam photo
+webcam_stream      Live webcam feed
+record_audio       Record microphone
+
+[2026-05-02 13:32:38] [INFO] Entering interactive shell (type 'exit' to leave)
+[2026-05-02 13:32:38] [INFO] [+] Starting persistent shell
+[2026-05-02 13:32:39] [ERROR] SSL error: [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:2559)
+[2026-05-02 13:32:39] [ERROR] [4518a457] receive error: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:2559)
+[2026-05-02 13:32:39] [INFO] [-] Client removed: 4518a457
+[2026-05-02 13:42:56] [WARNING] Use 'exit' to leave shell
+[2026-05-02 13:43:08] [INFO] Server started. Type 'help' for commands.
+[2026-05-02 13:43:08] [INFO] Listening securely on 127.0.0.1:4444
+[2026-05-02 13:43:15] [INFO] Securely connected to server
+[2026-05-02 13:43:15] [INFO] [+] Client connected: 3345849f (127.0.0.1:56223)
+[2026-05-02 13:43:27] [INFO] Session started with 3345849f
+[2026-05-02 13:43:36] [INFO] Entering interactive shell (type 'exit' to leave)
+[2026-05-02 13:43:36] [INFO] [+] Starting persistent shell
+[2026-05-02 13:43:36] [ERROR] [3345849f] receive error: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:2559)
+
+[2026-05-02 13:43:36] [ERROR] [3345849f] listener error: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:2559)
+[2026-05-02 13:43:36] [INFO] [-] Client removed: 3345849f
+[2026-05-02 13:43:36] [ERROR] Shell output error: TLS/SSL connection has been closed (EOF) (_ssl.c:2406)
+Traceback (most recent call last):
+  File "\\wsl.localhost\Ubuntu\home\ubuntu\4A-Securite_Informatique\Security_Python\project\github\Security-Python---RAT\src\server\client_test.py", line 53, in read_shell_output
+    client.send(encode_message(packet))
+  File "C:\Users\salla\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 1181, in send
+    return self._sslobj.write(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+ssl.SSLZeroReturnError: TLS/SSL connection has been closed (EOF) (_ssl.c:2406)
+[2026-05-02 13:43:36] [INFO] Client stopped
+[2026-05-02 17:23:33] [WARNING] Use 'exit' to leave shell
+[2026-05-02 17:23:49] [INFO] Server started. Type 'help' for commands.
+[2026-05-02 17:23:50] [INFO] Listening securely on 127.0.0.1:4444
+[2026-05-02 17:24:04] [INFO] Securely connected to server
+[2026-05-02 17:24:04] [INFO] [+] Client connected: 2d5af5ce (127.0.0.1:28626)
+[2026-05-02 17:24:18] [INFO] Session started with 2d5af5ce
+[2026-05-02 17:24:21] [INFO] Entering interactive shell (type 'exit' to leave)
+[2026-05-02 17:24:21] [INFO] [+] Starting persistent shell
+[2026-05-02 17:24:21] [ERROR] SSL error: [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:2559)
+[2026-05-02 17:24:21] [ERROR] [2d5af5ce] listener error: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:2559)
+[2026-05-02 17:24:21] [INFO] [-] Client removed: 2d5af5ce
+[2026-05-02 18:53:23] [WARNING] Use 'exit' to leave shell
+[2026-05-02 18:53:51] [INFO] Server started. Type 'help' for commands.
+[2026-05-02 18:53:51] [INFO] Listening securely on 127.0.0.1:4444
+[2026-05-02 18:54:02] [INFO] Securely connected to server
+[2026-05-02 18:54:02] [INFO] [+] Client connected: 0cac3d46 (127.0.0.1:48636)
+[2026-05-02 18:54:20] [INFO] Session started with 0cac3d46
+[2026-05-02 18:54:24] [INFO] Entering interactive shell (type 'exit' to leave)
+[2026-05-02 18:54:24] [INFO] [+] Starting persistent shell

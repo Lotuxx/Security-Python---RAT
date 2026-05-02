@@ -3,6 +3,7 @@ import uuid
 
 from .logger import logger
 from .session import Session
+from .terminal import safe_print
 
 
 class ClientManager:
@@ -20,13 +21,48 @@ class ClientManager:
             self._clients[client_id] = session
 
         logger.info(f"[+] Client connected: {client_id} ({addr[0]}:{addr[1]})")
+
+        # ---- START RECEIVER THREAD AUTOMATICALLY ----- #
+        """
+        threading.Thread(
+            target=self._client_listener,
+            args=(session,),
+            daemon=True
+        ).start()
+        """
         return client_id
 
 
+    # -------- BACKGROUND RECEIVER -------- #
+    """
+    def _client_listener(self, session: Session):
+        while session.status == "connected":
+            try:
+                msg = session.receive()
+
+                if not msg:
+                    break
+
+                msg_type, data = session.handle_message(msg)
+                session.push_buffer(msg_type, data)
+
+                # -------- CLEAN OUTPUT CONTROL -------- #
+                if msg_type == "shell_output":
+                    safe_print(data.rstrip(), prefix=False)
+
+                elif msg_type == "response":
+                    safe_print(f"[{session.id}] {data}")
+
+            except Exception as e:
+                logger.error(f"[{session.id}] listener error: {e}")
+                break
+
+        # --- cleanup on disconnect --- #
+        self.remove(session.id)
+    """
+
     # -------- REMOVE CLIENT -------- #
     def remove(self, client_id: str):
-        session = None
-
         with self._lock:
             session = self._clients.pop(client_id, None)
 
@@ -57,7 +93,7 @@ class ClientManager:
             return len(self._clients)
 
 
-    # ---------- EXISTS CHECK (NEW - IMPORTANT) ---------- #
+    # ---------- EXISTS ---------- #
     def exists(self, client_id: str) -> bool:
         with self._lock:
             return client_id in self._clients
